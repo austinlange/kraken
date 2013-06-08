@@ -1,8 +1,12 @@
 
-var k = require('./lib/kraken');
-var Kraken = new k();
+var KRAKEN = require('./lib/kraken');
+var Kraken = new KRAKEN({});
 
+Kraken.on("connectedToDatabase", function() {
+	console.log("Connected to db");
+});
 
+Kraken.openDatabase();
 
 // bind process events to the app
 //process.on("exit", (Kraken.onProcessExit).bind(tos));

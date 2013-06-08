@@ -1,0 +1,9 @@
+{
+  "name": "kraken",
+  "version": "1.0.0",
+  "dependencies": {
+    "connect": "1.8.7",
+    "express": "1.x.x",
+    "hapi": "~1.7.3"
+  }
+}

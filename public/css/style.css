@@ -1,0 +1,15 @@
+/* style.css for kraken */
+.admin-container{
+	width:800px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.admin-header{
+	background-color:lightBlue;
+	height:160px;
+}
+
+.admin-login_box{
+	border:solid black;
+}
