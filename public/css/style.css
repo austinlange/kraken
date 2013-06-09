@@ -1,4 +1,38 @@
 /* style.css for kraken */
+.bg-holder{
+	width:100%;
+	background-color:lightGray;
+}
+/*.container{
+	max-width:1024px;
+	width:1024px;
+	margin-left:auto;
+	margin-right:auto;
+	
+	background-color:white;
+}*/
+
+.header{
+	height:10em;
+	background-color:lightBlue;
+}
+
+.main{
+	height:40em;
+	background-color:lightGreen;
+}
+
+.footer{
+	height:4em;
+	background-color:lightYellow;
+}
+
+
+
+
+
+
+/* ADMINISTRATION SECTION BEGIN */
 .admin-container{
 	width:800px;
 	margin-left:auto;
