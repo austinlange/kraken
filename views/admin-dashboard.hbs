@@ -1,18 +1,113 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../jquery-ui/css/excite-bike/jquery-ui.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
 	</head>
 
 	<body>
 		
-		<h1>Kraken Administrative Dashboard</h1>
-		<h3>Company Name: <span style='color:red; font-size:1.5em;'>{{title}}</span><-- it's from the server</h3>
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="#">{{title}}</a>
+				
+				<form class="navbar-search pull-left">
+					<div class="input-append">
+						<input type="search" class="span3" placeholder="Search" name="search" id="search"/>
+						<button class="btn">Search</button>
+					</div>
+				</form>
+				
+				<a href='../' class='pull-right'>Log Out</a>
+			</div>
+		</div>
+		<div class='main'>
+			<div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#tab-dashboard" data-toggle="tab">My Dashboard</a></li>
+					<li><a href="#tab-settings" data-toggle="tab">System Settings</a></li>
+					<li><a href="#tab-users" data-toggle="tab">Users</a></li>
+					<li><a href="#tab-locations" data-toggle="tab">Locations</a></li>
+					<li><a href="#tab-events" data-toggle="tab">Events</a></li>
+					<li><a href="#tab-products" data-toggle="tab">Products</a></li>
+					<li><a href="#tab-customers" data-toggle="tab">Customers</a></li>
+					<li><a href="#tab-reports" data-toggle="tab">Reports</a></li>
+					<li><a href="#tab-presentation" data-toggle="tab">Presentation</a></li>
+					<li><a href="#tab-sales" data-toggle="tab">Live Sales</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab-dashboard">
+						  <p>Graphs, current sales, whatever.  Can be configured by user.</p>
+					</div>
+					<div class="tab-pane" id="tab-settings">
+						  <p>Requires certain privilege level.  Can be used to change the organizations name, details, etc.  Edit taxes and financial stuff here.</p>
+					</div>
+					<div class="tab-pane" id="tab-users">
+						  <p>Use this to manage the administrative and staff-level users.  The people adding items and adjusting prices, as well as the people selling items at the POS terminals, and executives analyzing the data.</p>
+					</div>
+					<div class="tab-pane" id="tab-locations">
+						<p>Set up your locations and venues here.  <br/>You can have multiple "locations" (usually an address). <br/>At each location you can have multiple "venues", like screens in a multiplex.</p>
+						<div class="accordion" id="accordion2">
+							<div class="accordion-group">
+								<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+									Jacob Burns Film Center - Theater
+								</a>
+							</div>
+							<div id="collapseOne" class="accordion-body collapse in">
+								<div class="accordion-inner">
+									<ul>
+										<li><a href='#'>Theater 1</a></li>
+										<li><a href='#'>Theater 2</a></li>
+										<li><a href='#'>Theater 3</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+									Jacob Burns Film Center - Media Arts Lab
+								</a>
+							</div>
+							<div id="collapseTwo" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<ul>
+										<li><a href='#'>Upstairs Screening Room</a></li>
+										<li><a href='#'>Downstairs Screening Room</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="tab-events">
+						  <p>This is where you'll create Event Masters (like Iron Man 3), and Events (like Iron Man 3 at 2:00pm on M/D/YY).  You can do all scheduling, ticket assignments, series, discounts, and member availability on a per-film, per-event basis.</p>
+					</div>
+					<div class="tab-pane" id="tab-products">
+						  <p>This is where you will create your products - things that customers actually buy.  Ticket types are products, as well as concessions, memberships, series bundles, etc.</p>
+					</div>
+					<div class="tab-pane" id="tab-customers">
+						  <p>This is where you can access important information about your customers, and perform complex analysis.  You can also use this as a way to contact, track, and manage your customers.  Member management, privileges, discounts, messaging, etc all is managed from here.</p>
+					</div>
+					<div class="tab-pane" id="tab-reports">
+						  <p>This is where you can produce concise pre-built reports, or you can use and save the data filters to create your own.</p>
+					</div>
+					<div class="tab-pane" id="tab-presentation">
+						  <p>This is where you make changes to the web and POS portals.  This includes POS button placement and item selections, as well as custom CSS and HTML editing for the web.</p>
+					</div>
+					<div class="tab-pane" id="tab-sales">
+						  <p>This is an interface used to process over-the-phone sales of the products through the system in real-time.</p>
+					</div>
+				</div>
+			</div>
+		</div>
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-		<script src="jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
-		<script src="js/libs/handlebars.js"></script>
-		<script src="js/libs/ember-1.0.0-rc.5.min.js"></script>
-		<script src="js/application.js"></script>
+		<script src="../js/libs/bootstrap.min.js"></script>
+		
+		<script src="../js/libs/handlebars.js"></script>
+		<script src="../js/libs/ember-1.0.0-rc.5.min.js"></script>
+		<script src="../js/application.js"></script>
 	</body>
 <html>
