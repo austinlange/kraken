@@ -33,17 +33,19 @@
 
 
 /* ADMINISTRATION SECTION BEGIN */
-.admin-container{
-	width:800px;
-	margin-left:auto;
-	margin-right:auto;
-}
-
-.admin-header{
-	background-color:lightBlue;
-	height:160px;
-}
 
 .admin-login_box{
 	border:solid black;
+}
+.admin-login_table{
+	font-size:1.25em;
+	margin-top:1.5em;
+	margin-left:auto;
+	margin-right:auto;
+}
+.admin-login_table td{
+	vertical-align:middle;
+}
+.centered{
+	text-align:center;
 }

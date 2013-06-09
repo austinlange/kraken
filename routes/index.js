@@ -10,7 +10,9 @@ exports.index = function(req, res){
 exports.admin = function(req, res){
   res.render('admin', { title: 'Sam Rocks!' });
 };
-
+exports.dashboard = function(req, res){
+  res.render('admin-dashboard', { title: 'Sam Rocks!' });
+};
 
 /*
  * GET hello

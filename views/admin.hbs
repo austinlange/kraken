@@ -1,12 +1,111 @@
+<!DOCTYPE HTML>
 <html>
 	<head>
-	</head>
-	<body>
-		<h2>Kraken! Administration</h2>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/marketing.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+  </head>
+
+  <body>
+
+    <!-- NAVBAR
+    ================================================== -->
+    <div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      <div class="container">
+
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/">Kraken</a>
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="/">About</a></li>
+                <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Features <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Event Management</a></li>
+                    <li><a href="#">Customer Management</a></li>
+                    <li><a href="#">Data Tracking and Reporting</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Membership</li>
+                    <li><a href="#">Member Management</a></li>
+                    <li><a href="#">Member Sales, Products, Discounts</a></li>
+					<li class="divider"></li>
+                    <li class="nav-header">Portal Management</li>
+                    <li><a href="#">Web Portal</a></li>
+                    <li><a href="#">POS Terminal</a></li>
+                    <li><a href="#">Phone Sales</a></li>
+                  </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="/admin">Client Login</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
+
+      </div> <!-- /.container -->
+    </div><!-- /.navbar-wrapper -->
+	
+	
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+	<h3>Client Login</h3>
+	<div class='admin-login_box'>
+		<form>
+			<table class='admin-login_table'>
+				<tr>
+					<td>Username:</td><td><input type='text' id='input_username' placeholder='a@b.com'/></td>
+				</tr>
+				<tr>
+					<td>Password:</td><td><input type='password' id='input_password'  placeholder='Password'/></td>				
+				</tr>
+				<tr>
+					<td colspan='2' class='centered'><a href='admin/dashboard' class='btn btn-large'>Log in</a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Red Ring Software, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div>
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-		<script src="./js/libs/handlebars.js"></script>
-		<script src="../js/libs/ember-1.0.0-rc.5.min.js"></script>
+		<script src="js/libs/bootstrap.min.js"></script>
+		<script src="js/libs/handlebars.js"></script>
+		<script src="js/libs/ember-1.0.0-rc.5.min.js"></script>
 		<script src="js/application.js"></script>
 	</body>
 <html>
