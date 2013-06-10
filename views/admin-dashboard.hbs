@@ -83,7 +83,7 @@
 							</div>
 							<div id="collapseOne" class="accordion-body collapse in">
 								<div class="accordion-inner">
-									<span class='pull-right'><a href='#'><i class='icon-remove'></i> Delete Location</span></a>
+									<span class='pull-right'><a href='#'><i class='icon-remove'></i> Delete Location</a></span>
 									<h6>364 Manville Rd, Pleasantville NY, 10570</h6>
 									http://www.burnsfilmcenter.org/<br/>
 									914-773-7663 ext. 1<br/>
@@ -123,7 +123,7 @@
 							</div>
 							<div id="collapseTwo" class="accordion-body collapse">
 								<div class="accordion-inner">
-									<span class='pull-right'><a href='#'><i class='icon-remove'></i> Delete Location</span></a>
+									<span class='pull-right'><a href='#'><i class='icon-remove'></i> Delete Location</a></span>
 									<h6>400 Manville Rd, Pleasantville NY, 10570</h6>
 									http://www.burnsfilmcenter.org/<br/>
 									Phone: 914-773-7663 ext. 1<br/>
@@ -175,23 +175,7 @@
 									
 										<div class='span3 events-master_listing'>
 													Sort by:
-													
-													
-											<div id='event-master-listing-sorter' class="btn-group" data-toggle="buttons-radio" >
-														
-												<button type="button" class="btn btn-mini" data-toggle="button">
-													Duration
-													<input type="radio" name="is_private" value="0" />
-												</button>
-												<button type="button" class="btn btn-mini" data-toggle="button">
-													Name
-													<input type="radio" name="is_private" value="1" />
-												</button>
-												<button type="button" class="btn btn-mini" data-toggle="button">
-													Rating
-													<input type="radio" name="is_private" value="1" />
-												</button>
-											</div>
+													Name | Duration | group
 											<ul title="YOU WILL BE ABLE TO GHOST-DRAG AND DROP THESE LISTINGS INTO THE SCHEDULER TAB TO CREATE A SCHEDULE">
 												<li>film listing</li>
 												<li>film listing</li>
@@ -283,7 +267,34 @@
 						   PRODUCTS TAB
 					***************************
 					*********************** -->
-						  <p>This is where you will create your products - things that customers actually buy.  Ticket types are products, as well as concessions, memberships, series bundles, etc.</p>
+						<p>This is where you will create your products - things that customers actually buy.  Ticket types are products, as well as concessions, memberships, series bundles, etc.</p>
+						<ul class="nav nav-tabs" id="event-options">
+							<li class="active"><a href="#tickets" data-toggle="tab">Tickets</a></li>
+							<li><a href="#concessions" data-toggle="tab">Concessions</a></li>
+							<li><a href="#merchandise" data-toggle="tab">Merchandise</a></li>
+						</ul>
+						 
+						<div class="tab-content">
+							<div class="tab-pane active" id="tickets">
+								<div class='events-display'>
+									<h3>Tickets</h3>
+								</div>
+							</div>
+							<div class="tab-pane" id="concessions">
+								<div class='events-display'>
+									<h3>Concessions</h3>
+									
+								</div>
+							</div>
+							<div class="tab-pane" id="merchandise">
+								<div class='events-display'>
+									<h3>Merchandise</h3>
+									
+								</div>
+							</div>
+							<div class="tab-pane" id="event-groups">...</div>
+							<div class="tab-pane" id="event-defaults">...</div>
+						</div>
 					</div>
 					<div class="tab-pane" id="tab-customers">
 					<!-- **********************
