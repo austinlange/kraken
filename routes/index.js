@@ -11,7 +11,7 @@ exports.admin = function(req, res){
   res.render('admin', { title: 'Sam Rocks!' });
 };
 exports.dashboard = function(req, res){
-  res.render('admin-dashboard', { title: 'Sam Rocks!' });
+  res.render('admin-dashboard', { title: 'Dashboard' });
 };
 
 /*

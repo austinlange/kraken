@@ -16,7 +16,65 @@ h1{
 	height:6em;
 	background-color:lightGray;
 }
-
+.nav a{
+	font-weight:bold;
+	font-size:1.35em;
+}
+.tab-pane{
+	margin-right:20px;
+}
 .tab-pane p{
 	max-width:800px;
+}
+
+.venue-details{
+	display:block;
+	background-color:lightYellow;
+	border:thin solid black;
+	padding:5px;
+}
+.events-display{
+	border:solid black;
+	padding:10px;
+	height:400px;
+}
+.events-master_listing{
+	background-color:lightYellow;
+	border:thin solid black;
+}
+.events-master_listing ul{
+	margin-left:0px; 
+	list-style-type:none;
+	max-height:100%;
+	height:320px;
+	overflow-y:scroll;
+}
+.events-master_listing ul li{
+	border:thin solid black;
+	margin-top:.1em;
+	margin-bottom:.1em;
+	padding:.3em;
+}
+.events-master_listing{
+	float:left;
+	padding:.2em;
+}
+
+.events-event_scheduler{
+	border:thin solid black;
+	padding:.3em;
+}
+#event-scheduler-datepicker{
+}
+
+
+div.btn-group[data-toggle=buttons-radio] input[type=radio] {
+  display:    block;
+  position:   absolute;
+  top:        0;
+  left:       0;
+  width:      100%;
+  height:     100%;
+  opacity:    hidden;
+  visibility: hidden;
 }

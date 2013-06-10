@@ -25,11 +25,11 @@
 		<div class='main'>
 			<div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
 				<ul class="nav nav-tabs">
-					<li class="active"><a href="#tab-dashboard" data-toggle="tab">My Dashboard</a></li>
+					<li><a href="#tab-dashboard" data-toggle="tab">My Dashboard</a></li>
 					<li><a href="#tab-settings" data-toggle="tab">System Settings</a></li>
 					<li><a href="#tab-users" data-toggle="tab">Users</a></li>
 					<li><a href="#tab-locations" data-toggle="tab">Locations</a></li>
-					<li><a href="#tab-events" data-toggle="tab">Events</a></li>
+					<li class="active"><a href="#tab-events" data-toggle="tab">Events</a></li>
 					<li><a href="#tab-products" data-toggle="tab">Products</a></li>
 					<li><a href="#tab-customers" data-toggle="tab">Customers</a></li>
 					<li><a href="#tab-reports" data-toggle="tab">Reports</a></li>
@@ -37,30 +37,80 @@
 					<li><a href="#tab-sales" data-toggle="tab">Live Sales</a></li>
 				</ul>
 				<div class="tab-content">
-					<div class="tab-pane active" id="tab-dashboard">
+					<div class="tab-pane" id="tab-dashboard">
+					<!-- **********************
+					***************************
+						   DASHBOARD TAB
+					***************************
+					*********************** -->
 						  <p>Graphs, current sales, whatever.  Can be configured by user.</p>
 					</div>
 					<div class="tab-pane" id="tab-settings">
+					<!-- **********************
+					***************************
+						   SETTINGS TAB
+					***************************
+					*********************** -->
 						  <p>Requires certain privilege level.  Can be used to change the organizations name, details, etc.  Edit taxes and financial stuff here.</p>
 					</div>
 					<div class="tab-pane" id="tab-users">
+					<!-- **********************
+					***************************
+						   USERS TAB
+					***************************
+					*********************** -->
 						  <p>Use this to manage the administrative and staff-level users.  The people adding items and adjusting prices, as well as the people selling items at the POS terminals, and executives analyzing the data.</p>
 					</div>
 					<div class="tab-pane" id="tab-locations">
+					<!-- **********************
+					***************************
+						   LOCATIONS TAB
+					***************************
+					*********************** -->
+					
 						<p>Set up your locations and venues here.  <br/>You can have multiple "locations" (usually an address). <br/>At each location you can have multiple "venues", like screens in a multiplex.</p>
+						<p>
+							<br/>
+							<button class="btn"><i class='icon-star'></i> Add Location</button>
+						</p>
+						<br/>
 						<div class="accordion" id="accordion2">
 							<div class="accordion-group">
 								<div class="accordion-heading">
 								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-									Jacob Burns Film Center - Theater
+									<h5>Jacob Burns Film Center - Theater</h5>
 								</a>
 							</div>
 							<div id="collapseOne" class="accordion-body collapse in">
 								<div class="accordion-inner">
+									<span class='pull-right'><a href='#'><i class='icon-remove'></i> Delete Location</span></a>
+									<h6>364 Manville Rd, Pleasantville NY, 10570</h6>
+									http://www.burnsfilmcenter.org/<br/>
+									914-773-7663 ext. 1<br/>
+									<button title="Add a venue to this location" class="btn btn-mini"><i class='icon-star'></i> Add Venue</button>
 									<ul>
-										<li><a href='#'>Theater 1</a></li>
-										<li><a href='#'>Theater 2</a></li>
-										<li><a href='#'>Theater 3</a></li>
+										<li>	
+											<a href='#'>Theater 1</a>
+											<div class='venue-details'>
+												Name: Theater 1<br/>
+												Capacity: 1,000<br/>
+											</div>
+										</li>
+										<li>
+											<a href='#'>Theater 2</a>
+											<div class='venue-details'>
+												Name: Theater 2<br/>
+												Capacity: 50<br/>
+											</div>
+										</li>
+										<li>
+											<a href='#'>Theater 3</a>
+											<div class='venue-details'>
+												Name: Theater 3<br/>
+												Capacity: 300<br/>
+											</div>
+										</li>
+										<li><a href='#'>See All Events</a></li>
 									</ul>
 								</div>
 							</div>
@@ -68,36 +118,203 @@
 						<div class="accordion-group">
 							<div class="accordion-heading">
 								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-									Jacob Burns Film Center - Media Arts Lab
+									<h5>Jacob Burns Film Center - Media Arts Lab</h5>
 								</a>
 							</div>
 							<div id="collapseTwo" class="accordion-body collapse">
 								<div class="accordion-inner">
+									<span class='pull-right'><a href='#'><i class='icon-remove'></i> Delete Location</span></a>
+									<h6>400 Manville Rd, Pleasantville NY, 10570</h6>
+									http://www.burnsfilmcenter.org/<br/>
+									Phone: 914-773-7663 ext. 1<br/>
+									Fax: 914-773-7664<br/>
+									<button title="Add a venue to this location" class="btn btn-mini"><i class='icon-star'></i> Add Venue</button>
 									<ul>
-										<li><a href='#'>Upstairs Screening Room</a></li>
-										<li><a href='#'>Downstairs Screening Room</a></li>
+										<li>
+											<a href='#'>Upstairs Screening Room</a>
+											<div class='venue-details'>
+												Name: Upstairs Screening Room<br/>
+												Capacity: 300<br/>
+											</div>
+										</li>
+										<li>
+											<a href='#'>Downstairs Screening Room</a>
+											<div class='venue-details'>
+												Name: Downstairs Screening Room<br/>
+												Capacity: 300<br/>
+											</div>
+										</li>
+										<li><a href='#'>See All Events</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
 						</div>
 					</div>
-					<div class="tab-pane" id="tab-events">
-						  <p>This is where you'll create Event Masters (like Iron Man 3), and Events (like Iron Man 3 at 2:00pm on M/D/YY).  You can do all scheduling, ticket assignments, series, discounts, and member availability on a per-film, per-event basis.</p>
-					</div>
+					<div class="tab-pane active" id="tab-events">
+					<!-- **********************
+					***************************
+						   EVENTS TAB
+					***************************
+					*********************** -->
+						<p>This is where you'll create Event Masters (like Iron Man 3), and Events (like Iron Man 3 at 2:00pm on M/D/YY).  You can do all scheduling, ticket assignments, series, discounts, and member availability on a per-film, per-event basis.</p>
+						<!-- -->
+						
+						<ul class="nav nav-tabs" id="event-options">
+							<li class="active"><a href="#event-scheduler" data-toggle="tab">Scheduler</a></li>
+							<li><a href="#event-masters" data-toggle="tab">Event Masters</a></li>
+							<li><a href="#event-groups" data-toggle="tab">Event Groups</a></li>
+							<li><a href="#event-defaults" data-toggle="tab">Defaults</a></li>
+						</ul>
+						 
+						<div class="tab-content">
+							<div class="tab-pane active" id="event-scheduler">
+								<div class='events-display'>
+									<br/>
+									<div class='row'>
+									
+										<div class='span3 events-master_listing'>
+													Sort by:
+													
+													
+											<div id='event-master-listing-sorter' class="btn-group" data-toggle="buttons-radio" >
+														
+												<button type="button" class="btn btn-mini" data-toggle="button">
+													Duration
+													<input type="radio" name="is_private" value="0" />
+												</button>
+												<button type="button" class="btn btn-mini" data-toggle="button">
+													Name
+													<input type="radio" name="is_private" value="1" />
+												</button>
+												<button type="button" class="btn btn-mini" data-toggle="button">
+													Rating
+													<input type="radio" name="is_private" value="1" />
+												</button>
+											</div>
+											<ul title="YOU WILL BE ABLE TO GHOST-DRAG AND DROP THESE LISTINGS INTO THE SCHEDULER TAB TO CREATE A SCHEDULE">
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+												<li>film listing</li>
+											</ul>
+										</div>
+												
+										<div class='span10 events-event_scheduler'>
+											<h5>Event Scheduler 
+												<i 
+													class='icon-question-sign' 
+													title='This will hold a drag/drop target area.  Vertically stacked Location/Venue groups, timeline going to the right representing showtimes.  Drag and drop "Event Masters" from the left menu into this area to "schedule" the show.  Must click SAVE at the bottom before it applies.  Double click a scheduled event in the droptarget area to edit that event's properties.'
+												>
+												</i>
+											</h5>
+											<div class='row'>
+												<div class='span4'>
+													Target Date:<input type="text" id="event-scheduler-datepicker" ></input>
+												</div>
+												<div class='span3'>
+													<a href='#' class='btn btn-mini'>Copy Today's Schedule</a>
+												</div>
+												<div class='span3'>
+													<a href='#' class='btn btn-mini'>Clear Today's Schedule</a>
+												</div>
+											</div>
+											<p>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="event-masters">
+								<div class='events-display'>
+									<h4>Event Masters</h4>
+									<p>
+										This is where you will create and manage (edit, remove, update) Event Master Profiles.  This is a definition of an event that can be scheduled multiple times.  
+									</p>
+									<div class='row'>
+										<div class='span3'>
+											List of event masters
+										</div>
+										<div class='span9'>
+											Edit selected event master
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="event-groups">...</div>
+							<div class="tab-pane" id="event-defaults">...</div>
+						</div>
+						
+						<!-- -->
+						
+						
+						
+						<!-- -->
+					</div>					
+						
 					<div class="tab-pane" id="tab-products">
+					<!-- **********************
+					***************************
+						   PRODUCTS TAB
+					***************************
+					*********************** -->
 						  <p>This is where you will create your products - things that customers actually buy.  Ticket types are products, as well as concessions, memberships, series bundles, etc.</p>
 					</div>
 					<div class="tab-pane" id="tab-customers">
+					<!-- **********************
+					***************************
+						   CUSTOMERS TAB
+					***************************
+					*********************** -->
 						  <p>This is where you can access important information about your customers, and perform complex analysis.  You can also use this as a way to contact, track, and manage your customers.  Member management, privileges, discounts, messaging, etc all is managed from here.</p>
 					</div>
 					<div class="tab-pane" id="tab-reports">
+					<!-- **********************
+					***************************
+						   REPORTS TAB
+					***************************
+					*********************** -->
 						  <p>This is where you can produce concise pre-built reports, or you can use and save the data filters to create your own.</p>
 					</div>
 					<div class="tab-pane" id="tab-presentation">
+					<!-- **********************
+					***************************
+						   PRESENTATION TAB
+					***************************
+					*********************** -->
 						  <p>This is where you make changes to the web and POS portals.  This includes POS button placement and item selections, as well as custom CSS and HTML editing for the web.</p>
 					</div>
 					<div class="tab-pane" id="tab-sales">
+					<!-- **********************
+					***************************
+						   SALES TAB
+					***************************
+					*********************** -->
 						  <p>This is an interface used to process over-the-phone sales of the products through the system in real-time.</p>
 					</div>
 				</div>
@@ -108,6 +325,18 @@
 		
 		<script src="../js/libs/handlebars.js"></script>
 		<script src="../js/libs/ember-1.0.0-rc.5.min.js"></script>
+		<script src="../jquery-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="../js/application.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('.venue-details').hide().prev().click(function(i){
+					$(this).next().fadeToggle(400);
+				});
+				$(function() {
+					$( "#event-scheduler-datepicker" ).datepicker();
+				});
+				$('#event-options a:last').tab('show');
+			});
+		</script>
 	</body>
 <html>
