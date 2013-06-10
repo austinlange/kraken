@@ -10,7 +10,9 @@ html, body, div, table, span, p, a, h1, h2, h3, h4, h5, h6, section{
 h1{
 	font-size:3em;
 }
-
+body{
+	font-size:.9em;
+}
 .top-menu-bar{
 	width:100%;
 	height:6em;
@@ -32,6 +34,9 @@ h1{
 	background-color:lightYellow;
 	border:thin solid black;
 	padding:5px;
+}
+.accordion-inner ul li a{
+	font-weight:bold;
 }
 .events-display{
 	border:solid black;
@@ -64,10 +69,27 @@ h1{
 	border:thin solid black;
 	padding:.3em;
 }
-#event-scheduler-datepicker{
+.user-listing{
+	text-align:left;
+	width:100%;
 }
 
-
+.privilege-group{
+	float:left;
+	margin-left:20px;
+	padding-left:20px;
+	border-left:thin solid black;
+	max-width:700px;
+}
+.privilege-group h4{
+	margin:.25em;
+	margin-bottom:.65em;
+}
+.privilege-group hr{
+	margin-top:.75em; margin-bottom:.75em;
+	border-top:1px solid #000;
+	border-bottom:1px solid #eee;
+}
 div.btn-group[data-toggle=buttons-radio] input[type=radio] {
   display:    block;
   position:   absolute;
