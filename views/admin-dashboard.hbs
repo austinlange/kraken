@@ -549,12 +549,12 @@
 																<strong>Members-Only:</strong> Yes<br/>
 																<strong>Limit per event:</strong> 2 (All memberships)<br/>
 																<hr>
-																<a href='#' title='This should "drop down" to show all membership levels, whether this ticket is available to them, and what their limit should be.">
+																<a href='#' title='This should "drop down" to show all membership levels, whether this ticket is available to them, and what their limit should be.'>
 																	Show Membership Limits and Availability
 																</a>
 															</div>
 														</li>
-														<li><a href='#'>See All Events</a></li>
+														<li><a href='#' >See All Events</a></li>
 													</ul>
 												</div>
 											</div>
@@ -710,10 +710,9 @@
 				});
 				$('#event-options a:last').tab('show');
 				$(".disabled").bind('click', function(){
-					alert("Clicked li!");
-					
+					//THIS NEEDS A FIXIN, OR A PADDLIN'
 				}).find("a").bind('click', function(){
-					alert("clicked a");
+					alert("You shouldn't even be seeing this message, let alone switching to this tab!");
 					$(this).stopPropogation();
 				});
 				$(".disabled").css('color', '#f00').click(function(evt){

@@ -79,7 +79,11 @@ body{
 	margin-left:20px;
 	padding-left:20px;
 	border-left:thin solid black;
-	max-width:700px;
+	max-width:400px;
+}
+.privilege-group label{
+	width:100%;
+	float:none;
 }
 .privilege-group h4{
 	margin:.25em;
@@ -89,6 +93,9 @@ body{
 	margin-top:.75em; margin-bottom:.75em;
 	border-top:1px solid #000;
 	border-bottom:1px solid #eee;
+}
+.checkbox{
+	display:block;
 }
 div.btn-group[data-toggle=buttons-radio] input[type=radio] {
   display:    block;
