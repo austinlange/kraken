@@ -11,7 +11,7 @@
 		
 		<div class="navbar">
 			<div class="navbar-inner">
-				<a class="brand" href="#">{{title}}</a>
+				<a class="brand" href="#">Kraken {{title}}</a>
 				
 				<form class="navbar-search pull-left">
 					<div class="input-append">
@@ -255,7 +255,7 @@
 						<p>Set up your locations and venues here.  <br/>You can have multiple "locations" (usually an address). <br/>At each location you can have multiple "venues", like screens in a multiplex.</p>
 						<p>
 							<br/>
-							<button class="btn"><i class='icon-file'></i> Add Location</button>
+							<button class="btn  btn-success"><i class='icon-file'></i> Add Location</button>
 						</p>
 						<br/>
 						<div class="accordion" id="accordion2">
@@ -271,7 +271,7 @@
 										<h6>364 Manville Rd, Pleasantville NY, 10570</h6>
 										http://www.burnsfilmcenter.org/<br/>
 										914-773-7663 ext. 1<br/>
-										<button title="Add a venue to this location" class="btn btn-mini"><i class='icon-file'></i> Add Venue</button>
+										<button title="Add a venue to this location" class="btn btn-mini  btn-success"><i class='icon-file'></i> Add Venue</button>
 										<ul>
 											<li>	
 												<a href='#'>Theater 1</a>
@@ -312,7 +312,7 @@
 										http://www.burnsfilmcenter.org/<br/>
 										Phone: 914-773-7663 ext. 1<br/>
 										Fax: 914-773-7664<br/>
-										<button title="Add a venue to this location" class="btn btn-mini"><i class='icon-file'></i> Add Venue</button>
+										<button title="Add a venue to this location" class="btn btn-mini  btn-success"><i class='icon-file'></i> Add Venue</button>
 										<ul>
 											<li>
 												<a href='#'>Upstairs Screening Room</a>
@@ -664,7 +664,84 @@
 						   CUSTOMERS TAB
 					***************************
 					*********************** -->
-						  <p>This is where you can access important information about your customers, and perform complex analysis.  You can also use this as a way to contact, track, and manage your customers.  Member management, privileges, discounts, messaging, etc all is managed from here.</p>
+						<p>This is where you can access important information about your customers, and perform complex analysis.  You can also use this as a way to contact, track, and manage your customers.  Member management, privileges, discounts, messaging, etc all is managed from here.</p>
+						<div class='customers-display'>
+									<ul class="nav nav-tabs" id="customers-options">
+										<li class="active"><a href="#customers-customers" data-toggle="tab">Customers</a></li>
+										<!-- <li><a href="#customers-members" data-toggle="tab">Members</a></li> -->
+										<li><a href="#customers-member-definitions" data-toggle="tab">Membership Types</a></li>
+									</ul>
+									 
+									<div class="tab-content">
+										<div class="tab-pane active" id="customers-customers">
+											<div class='events-display'>
+												
+											</div>
+										</div>
+										<div class="tab-pane" id="customers-members">
+											<div class='events-display'>
+												<h5>
+													Members
+												</h5>
+											</div>
+										</div>
+										<div class="tab-pane" id="customers-member-definitions">
+											<div class='events-display'>
+												<h5>
+													Membership Types
+												</h5>
+												<div>
+													<div class='row display-row'>
+														<div class='span3'>
+															<button class='btn btn-success btn-mini'><i class='icon-file'></i> Add Membership Type</button>
+															<div class='member-types-list'>
+																<div class='row'>
+																	<div class='span3 membership-types_listing'>
+																				Sort by:
+																				Name | Duration | group
+																		<ul title="YOU WILL BE ABLE TO GHOST-DRAG AND DROP THESE LISTINGS INTO THE SCHEDULER TAB TO CREATE A SCHEDULE">
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																			<li><a href='#'>film listing</a></li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class='span9'>
+															<h4>Membership Type Definition</h4>
+															<hr/>
+															Membership Name: Junior Membership<br/>
+															Price: $100<br/>
+															Duration: 12 months<br/>
+															<span>Membership Privileges</span>: Custom Definition<br/>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+						</div>
+											
+					
 					</div>
 					<div class="tab-pane" id="tab-reports">
 					<!-- **********************
@@ -703,16 +780,19 @@
 		<script>
 			$(document).ready(function(){
 				$('.venue-details, .ticket-type-details').hide().prev().click(function(i){
+					i.preventDefault();
+					i.stopPropagation();
 					$(this).next().slideToggle(400);
 				});
 				$(function() {
 					$( "#event-scheduler-datepicker" ).datepicker();
 				});
 				$('#event-options a:last').tab('show');
+				
 				$(".disabled").bind('click', function(){
 					//THIS NEEDS A FIXIN, OR A PADDLIN'
 				}).find("a").bind('click', function(){
-					alert("You shouldn't even be seeing this message, let alone switching to this tab!");
+					//alert("You shouldn't even be seeing this message, let alone switching to this tab!");
 					$(this).stopPropogation();
 				});
 				$(".disabled").css('color', '#f00').click(function(evt){
