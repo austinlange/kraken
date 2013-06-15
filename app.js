@@ -4,9 +4,6 @@ var Kraken = new KRAKEN({});
 
 Kraken.on("connectedToDatabase", function() {
 	console.log("Connected to db");
-	Kraken.db.get("sam is", function(error, value) {
-		console.log("value of 'sam is': " + value);
-	})
 });
 
 Kraken.openDatabase();
