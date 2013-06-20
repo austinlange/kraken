@@ -1,6 +1,7 @@
 
 var KRAKEN = require('./lib/kraken');
 var Kraken = new KRAKEN({});
+var User = require('./lib/user');
 
 Kraken.on("connectedToDatabase", (function() {
 	if(!this.db) {
@@ -9,13 +10,14 @@ Kraken.on("connectedToDatabase", (function() {
 	}
 
 	console.log("Connected to db");
-	this.db.get("sam is", function(error, value) {
-		if(error) {
-			console.log("Error: " + error);
-			return;
-		}
-		console.log("sam is: " + value); 
-	});
+
+	var austin = new User();
+	austin.create({
+		"name": "Austin",
+		"email": "austin.lange@gmail.com"
+	}, (function(error, value) {
+
+	}).bind(this));
 	
 }).bind(Kraken));
 
