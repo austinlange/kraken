@@ -9,8 +9,14 @@ Kraken.on("connectedToDatabase", (function() {
 	}
 
 	console.log("Connected to db");
-	var samis = this.db.get("sam");
-	console.log("sam is: " + samis); 
+	this.db.get("sam is", function(error, value) {
+		if(error) {
+			console.log("Error: " + error);
+			return;
+		}
+		console.log("sam is: " + value); 
+	});
+	
 }).bind(Kraken));
 
 Kraken.openDatabase();
