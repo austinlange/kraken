@@ -2,9 +2,16 @@
 var KRAKEN = require('./lib/kraken');
 var Kraken = new KRAKEN({});
 
-Kraken.on("connectedToDatabase", function() {
+Kraken.on("connectedToDatabase", (function() {
+	if(!this.db) {
+		console.log("Error: no DB");
+		return;
+	}
+
 	console.log("Connected to db");
-});
+	var samis = this.db.get("sam");
+	console.log("sam is: " + samis); 
+}).bind(Kraken));
 
 Kraken.openDatabase();
 
