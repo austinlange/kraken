@@ -1,58 +1,96 @@
 var User = require('../lib/user');
 
 module.exports = function(app) {
-	var buildResponse = function(success, body) {
-		return {
-			success: success,
-			data: body
-		};
+	var sendError = function(message, response) {
+		return response.json(200, {"success": false, "error": message});
 	};
+
+	var sendSuccess = function(data, response) {
+		return response.json(200, {"success": true, "data": data});
+	};
+
+	var sendObject = function(object, response) {
+		return response.json(200, object);
+	};
+
+	app.post("/api/:version/user/:id", function(request, response, next) {
+		if (!request.params.id) {
+			return sendError("Missing required argument ID", response);
+		}
+
+		console.log("Updating " + request.params.id);
+
+		var user = new User();
+
+		user.loadById(request.params.id, (function(error) {
+			if (!user.id) {
+				return sendError("User does not exist", response);
+			}
+
+			user.fname = request.body.fname || user.fname;
+			user.lname = request.body.lname || user.lname;
+			
+			user.persist((function(error) {
+				if (error) {
+					return sendError(error, response);
+				}
+
+				return sendObject(user.toJSON(), response);
+			}).bind(this));
+
+		}).bind(this));
+	});
 
 	app.post("/api/:version/user", function(request, response, next) {
 		var missingFields = [];
-		console.log("POST fields: ");
-		console.log(request.body);
-
-		if (!request.body.name) {
-			missingFields.push("name");
-		}
 
 		if (!request.body.email) {
 			missingFields.push("email");
 		}
 
 		if (missingFields.length > 0) {
-			return response.json(200, {"success": false, "error": "Missing fields: " + missingFields.join(',')});
+			return sendError("Missing fields: " + missingFields.join(','), response);
 		}
 
 		var user = new User();
-		user.create(request.body.email, request.body, function(error, value) {
+		user.exists(request.body.email, (function(error, exists) {
 			if (error) {
-				return response.json(200, {"success": false, "error": error});
+				return sendError(error, response);
 			}
 
-			if (value == 0) {
-				return response.json(200, {"success": false, "error": "Failed to create user"});
+			if (!exists) {
+				user.create(request.body, (function(error, value) {
+					if (error) {
+						return sendError(error, response);
+					}
+
+					if (value == 0) {
+						return sendError("Failed to create user", response);
+					} else {
+						return sendSuccess("User successfully created", response);
+					}
+				}).bind(this));
 			} else {
-				return response.json(200, {"success": true, "message": "User successfully created"});
+				return sendError("User already exists", response);
 			}
-		});
+
+		}).bind(this));
 	});
 
 	app.get("/api/:version/user/:id", function(request, response, next) {
 		if (!request.params.id) {
-			return response.json(200, {"success": false, "error": "Missing required parameter 'id'"});
+			return sendError("Missing required parameter 'id'");
 		}
 
 		var user = new User();
 
-		user.loadById(request.params.id, function(error, value) {
+		user.loadById(request.params.id, (function(error) {
 			if (error) {
-				return response.json(200, {"success": false, "error": error});
+				return sendError(error, response);
 			}
 
-			return response.json(200, value);
-		});
+			return sendObject(user, response);
+		}).bind(this));
 	});
 
 	// 404 everything else
