@@ -11,13 +11,29 @@ Kraken.on("connectedToDatabase", (function() {
 
 	console.log("Connected to db");
 
-	var austin = new User();
-	austin.create({
+	var user = new User();
+	
+	user.create("austin.lange@gmail.com", {
 		"name": "Austin",
 		"email": "austin.lange@gmail.com"
 	}, (function(error, value) {
+		if (error) {
+			console.log(error);
+		}
+
+		user.loadById("austin.lange@gmail.com", function(error, object) {
+			if (error) {
+				console.log("Error loading user by ID: " + error);
+				return;
+			}
+
+			console.log("User name: " + object.name);
+			console.log("Email: " + object.email);
+		});
 
 	}).bind(this));
+
+
 	
 }).bind(Kraken));
 
