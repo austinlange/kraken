@@ -22,15 +22,17 @@ module.exports = function(app) {
 
 		var user = new User();
 
-		user.loadById(request.params.id, (function(error) {
-			if (!user.id) {
+		var func = isNaN(request.params.id) ? user.loadByEmail : user.loadById;
+
+		func.call(user, request.params.id, (function(error) {
+			if (isNaN(user.id) || !user.id) {
 				return sendError("User does not exist", response);
 			}
 
 			user.fname = request.body.fname || user.fname;
 			user.lname = request.body.lname || user.lname;
-			
-			user.persist((function(error) {
+
+			user.update((function(error) {
 				if (error) {
 					return sendError(error, response);
 				}
@@ -48,32 +50,21 @@ module.exports = function(app) {
 			missingFields.push("email");
 		}
 
-		if (missingFields.length > 0) {
-			return sendError("Missing fields: " + missingFields.join(','), response);
+		if (!request.body.password) {
+			missingFields.push("password");
 		}
 
-		var user = new User();
-		user.exists(request.body.email, (function(error, exists) {
+		if (missingFields.length > 0) {
+			return sendError("Missing fields: " + missingFields.join(', '), response);
+		} 
+
+		User.create(request.body, (function(error, user) {
 			if (error) {
-				return sendError(error, response);
+				console.log("Error creating user: " + error);
+				return sendError("Error creating user: " + error, response);
 			}
 
-			if (!exists) {
-				user.create(request.body, (function(error, value) {
-					if (error) {
-						return sendError(error, response);
-					}
-
-					if (value == 0) {
-						return sendError("Failed to create user", response);
-					} else {
-						return sendSuccess("User successfully created", response);
-					}
-				}).bind(this));
-			} else {
-				return sendError("User already exists", response);
-			}
-
+			return sendObject(user, response);
 		}).bind(this));
 	});
 
@@ -84,13 +75,21 @@ module.exports = function(app) {
 
 		var user = new User();
 
-		user.loadById(request.params.id, (function(error) {
+		var respond = (function(error) {
 			if (error) {
 				return sendError(error, response);
 			}
 
 			return sendObject(user, response);
-		}).bind(this));
+		}).bind(this);
+
+		if (isNaN(request.params.id)) {
+			console.log("Looking up user by email: %s", request.params.id);
+			user.loadByEmail(request.params.id, respond);
+		} else {
+			console.log("Looking up user by ID: %d", request.params.id);
+			user.loadById(request.params.id, respond);
+		}
 	});
 
 	// 404 everything else
